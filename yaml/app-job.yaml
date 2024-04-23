@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: app-job
+spec:
+  template:
+    metadata:
+      name: app-pod
+    spec:
+      containers:
+      - name: app-container
+        image: gcr.io/tetris-effect-419120/k8s-k3s:v2.0.0
+      restartPolicy: OnFailure
+  backoffLimit: 4
